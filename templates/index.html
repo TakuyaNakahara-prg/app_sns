@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block contents %}
+<h3>タイムライン</h3>
+
+{% for post in posts %}
+    
+    <p>
+    {{ post.created_at }}
+    <br>
+    <a href = '{% url 'timelines:detail' post.pk %}'>
+        {{ post.text }}
+    </a>
+    <br>
+    {{ post.user }}
+    </p>
+    
+{% endfor %}
+{% endblock %}

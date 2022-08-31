@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+
+<div class = 'form_container'>
+    <form method = 'post'>
+        {% csrf_token %}
+        {% for fields in form %}
+            {{ fields.label_tag }}
+            <br>
+            <p>
+            {{ fields }}
+            {% if fields.help_text %}
+                <small style = 'color: gray'>{{ fields.help_text }}</small>
+            {% endif %}
+            {% for error in fields.errors %}
+                <p style = 'color: red'>{{ error }}</p>
+            {% endfor %}
+            </p>
+        {% endfor %}
+        <input type = 'submit' value = '登録'>
+    </form>
+</div>
+
+<p><a href = '#'>トップページへ戻る</a></p>
+{% endblock %}

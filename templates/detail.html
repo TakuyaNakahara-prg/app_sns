@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block contents %}
+<p>
+    {{ post.created_at }}
+    <br>
+    {{ post.text }}
+    <br>
+    {{ post.user }}
+</p>
+{% endblock %}
