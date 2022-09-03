@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{%load static%}
+
+{% block contents %}
+
+<div class = 'top-page'>
+    <h2>SNSAPP~no-title~へようこそ</h2>
+
+    <p>日常の緩い出来事やポジティブな出来事を発信しよう！！</p>
+
+    <a href = '{% url 'accounts:login' %}'>ログインはこちら</a>
+    <a href = '{% url 'accounts:signup' %}'>登録はこちら</a>
+</div>
+
+{% endblock %}

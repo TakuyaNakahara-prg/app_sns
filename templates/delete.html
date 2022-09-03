@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+<form method = 'post'>
+    {% csrf_token %}
+    <input type = 'submit' onclick = 'return alertFunc()' value = '削除する'/>
+</form>
+
+<script>
+    function alertFunc() {
+        var del = confirm("本当に削除しますか？");
+        if (del == true) {
+            return true;
+        } else {
+            location.href = '{% url 'timelines:index' %}'
+            return false;
+        }
+    }
+</script>
+{% endblock %}

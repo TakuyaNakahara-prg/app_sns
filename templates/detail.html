@@ -9,4 +9,20 @@
     <br>
     {{ post.user }}
 </p>
+{% if post.user == user%}
+<a href = '{% url 'timelines:delete' post.pk %}'>削除する</a>
+<a href = '{% url 'timelines:update' post.pk %}'>更新</a>
+{% endif %}
+
+<p><a href = '{% url 'timelines:comment' post.pk %}'>返信</a></p>
+
+{% for comment in post.comment_set.all %}
+    <p>
+        {{ comment.text }}
+        <br>
+        {{ comment.created_at }}
+        <br>
+        {{ comment.user }}
+    </p>
+{% endfor %}
 {% endblock %}
