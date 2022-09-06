@@ -2,19 +2,20 @@
 {% load static %}
 
 {% block contents %}
-<h3>タイムライン</h3>
+<div class = 'timeline'>
+    <h3>タイムライン</h3>
+    <div class = 'top-container'>
 
-{% for post in posts %}
-    
-    <p>
-    {{ post.created_at }}
-    <br>
-    <a href = '{% url 'timelines:detail' post.pk %}'>
-        {{ post.text }}
-    </a>
-    <br>
-    {{ post.user }}
-    </p>
-    
-{% endfor %}
+        {% for post in posts %}
+        <div class="card">
+            <h5 class="card-header">[プロフィール画像]{{ post.user }}</h5>
+            <div class="card-body">
+              <p class="card-text">{{ post.text }}</p>
+              <p class="card-text">{{ post.created_at }}</p>
+              <a href="{% url 'timelines:detail' post.pk %}" class="btn btn-primary">詳細</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

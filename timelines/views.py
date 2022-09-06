@@ -18,6 +18,7 @@ class IndexView(ListView):
     def get_queryset(self):
         queryset = Post.objects.all()
         return queryset
+    
 
 @method_decorator(login_required, name = 'dispatch')
 class DetailView(DetailView):
@@ -36,6 +37,7 @@ class PostCreateView(CreateView):
         pd.user = self.request.user
         pd.save()
         return super().form_valid(form)
+    
 
 @method_decorator(login_required, name = 'dispatch')
 class PostDeleteView(DeleteView):
