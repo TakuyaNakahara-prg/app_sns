@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block contents %}
+
 <div class = 'timeline'>
     <h3>タイムライン</h3>
     <div class = 'top-container'>
 
         {% for post in posts %}
+        <section>
         <div class="card">
             <h5 class="card-header">[プロフィール画像]{{ post.user }}</h5>
             <div class="card-body">
@@ -15,6 +17,7 @@
               <a href="{% url 'timelines:detail' post.pk %}" class="btn btn-primary">詳細</a>
             </div>
           </div>
+        </section>
         {% endfor %}
     </div>
 </div>

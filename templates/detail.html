@@ -7,7 +7,7 @@
     <div class="card-body">
         <p class="card-text">{{ post.text }}</p>
         <p class="card-text">{{ post.created_at }}</p>
-        {% if post.user == user%}
+        {% if post.user == user %}
             <a href = '{% url 'timelines:delete' post.pk %}' class="btn btn-primary">削除する</a>
             <a href = '{% url 'timelines:update' post.pk %}' class="btn btn-primary">更新</a>
         {% endif %}

@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, TemplateView, DetailView
 from .forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import User
+from timelines.models import Post
 # Create your views here.
 
 class SignupView(CreateView):
@@ -20,14 +21,7 @@ class SignupView(CreateView):
 class SignupDoneView(TemplateView):
     template_name = 'signup_done.html'
 
-@method_decorator(login_required, name = 'dispatch')
-class ProfileView(DetailView):
-    model = User
-    template_name = 'profile.html'
-    
-    def get_queryset(self):
-        queryset = User.objects.all()
-        return queryset
-    
 
-    
+class ProfileView(TemplateView):
+    template_name = 'profile.html'
+
