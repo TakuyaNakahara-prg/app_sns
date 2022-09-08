@@ -6,6 +6,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from accounts.models import User
 # Create your views here.
 class TopView(TemplateView):
     template_name = 'top.html'
@@ -24,6 +25,14 @@ class IndexView(ListView):
 class DetailView(DetailView):
     model = Post
     template_name = 'detail.html'
+
+class ProfileView(DetailView):
+    model = Post
+    template_name = 'profile.html'
+    slug_field = 'user'
+    slug_url_kwarg = 'user'
+
+
 
 @method_decorator(login_required, name = 'dispatch')
 class PostCreateView(CreateView):
@@ -75,5 +84,7 @@ class CommentCreateView(CreateView):
         comment.user = self.request.user
         comment.save()
         return redirect('timelines:detail', pk=post.pk)
+
+
 
 

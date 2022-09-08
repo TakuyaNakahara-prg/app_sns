@@ -22,6 +22,5 @@ class SignupDoneView(TemplateView):
     template_name = 'signup_done.html'
 
 
-class ProfileView(TemplateView):
-    template_name = 'profile.html'
+
 
