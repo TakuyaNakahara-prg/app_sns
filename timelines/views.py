@@ -26,14 +26,6 @@ class DetailView(DetailView):
     model = Post
     template_name = 'detail.html'
 
-class ProfileView(DetailView):
-    model = Post
-    template_name = 'profile.html'
-    slug_field = 'user'
-    slug_url_kwarg = 'user'
-
-
-
 @method_decorator(login_required, name = 'dispatch')
 class PostCreateView(CreateView):
     model = Post
@@ -85,6 +77,13 @@ class CommentCreateView(CreateView):
         comment.save()
         return redirect('timelines:detail', pk=post.pk)
 
+class UserPostView(ListView):
+    template_name = 'userpost.html'
 
+    def get_queryset(self):
+        user_id = self.kwargs['user']
+        queryset = Post.objects.filter(user = user_id)
+        return queryset
+    
 
 

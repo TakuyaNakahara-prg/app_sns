@@ -21,50 +21,7 @@ main {
 
 .card {
     margin-top: 10px;
+    border-radius: 10%;
 }
 
-.profile-page {
-    margin-top: 50px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.main-area{
-    padding: 20px 2%;
-    background-color: gainsboro;
-    margin-top: 30px;
-  }
-  .tab{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-  }
-  .tab-menu{
-    width: 50%;
-    text-align: center;
-    padding: 8px;
-    color:#ccc;
-    border-radius:8px;
-    background-color: #fff;
-    cursor: pointer;
-  }
-  .tab-menu.is-active{
-    background-color: paleturquoise;
-    color:black;
-  }
-  .content-box{
-    display: none;
-    height: 60vh;
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  .content-box.is-active{
-    display: flex;
-  }
-  .content{
-    font-size: 1.5rem;
-  }
+  

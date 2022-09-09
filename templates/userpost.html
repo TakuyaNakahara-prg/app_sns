@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+
+{% for post in object_list %}
+<section>
+    <div class="card">
+        <h5 class="card-header">[プロフィール画像]{{ post.user.username }}</h5>
+        <div class="card-body">
+          <p class="card-text">{{ post.text }}</p>
+          <p class="card-text">{{ post.created_at }}</p>
+          <a href="{% url 'timelines:detail' post.pk %}" class="btn btn-primary">詳細</a>
+        </div>
+      </div>
+    </section>
+{% endfor %}
+
+{% endblock %}
