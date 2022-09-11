@@ -17,7 +17,7 @@ class IndexView(ListView):
     context_object_name = 'posts'
     
     def get_queryset(self):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by('-created_at')
         return queryset
     
 

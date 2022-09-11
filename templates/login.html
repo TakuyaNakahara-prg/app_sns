@@ -1,20 +1,32 @@
 {% extends 'base.html'%}
+
 {% load static %}
 
 {% block contents %}
-<div class = 'login_container'>
+<div class = 'inputarea'>
     {% if form.errors %}
         <p style='color: red'>ユーザー名もしくはパスワードに誤りがあります。
             <br>もう一度確認してください。
         </p>
     {% endif %}
+    <div class = "form">
     <form method = 'post'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type = 'submit' value = 'ログイン'>
-
+        <h1>Please Login</h1>
+        <div class = 'userinfo'>
+            <div class = 'info'>
+            <label for = 'Username'><span>必須</span>ユーザー名</label>
+            <input type = 'text' name = 'username' id = 'id_username' maxlength ='100' autocapitalize = 'none' autocomplete = 'username' class = 'form-control' placeholder = 'ユーザー名' required autofocus>
+            </div>
+            <div class = 'info'>
+            <label for = 'Password'><span>必須</span>Password</label>
+            <input type = 'password' name = 'password' id = 'id_password' autocomplete = 'current-password' class = 'form-control' placeholder = 'パスワード' required>
+            </div>
+        </div>
+        <input type = 'submit' class = 'btn_auth' value = 'ログイン'>
         <p><a href = '#'>パスワードを忘れましたか？</a></p>
         <input type = 'hidden' name = 'next' value = '{% url 'timelines:index' %}'>
     </form>
+</div>
 </div>
 {% endblock %}

@@ -1,17 +1,12 @@
 body {
     background-color: aquamarine;
+    font-family: Meirio;
 }
 
-main {
+.card {
     width: 30%;
-    height: 700px;
     margin: 0 auto;
     text-align: center;
-}
-
-.top-container {
-    text-align: center;
-    padding-top: 20px;
 }
 
 .timeline h3 {
@@ -19,9 +14,123 @@ main {
     padding-top: 50px;
 }
 
-.card {
-    margin-top: 10px;
-    border-radius: 10%;
+
+.inputarea {
+    width: 100%;
 }
 
+.form {
+    background:#fff;
+    border-radius:6px;
+    padding:20px;
+    padding-top:30px;
+    width:60%;
+    margin:50px auto;
+    box-shadow:5px 5px 0px rgba(0,0,0,.1);
+}
+
+.userinfo {
+    margin-bottom: 30px;
+   text-align: left;
+}
+
+.info {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.info span {
+    background-color: rgb(218, 34, 34);
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.info input {
+    margin-top: 20px;
+}
+
+.btn_auth {
+    text-align: center;
+    width: 60%;
+    height: 60px;
+    border-radius: 5px;
+    background-color: rgb(222, 52, 173);
+    color: white;
+    box-shadow: 2px 2px 0px rgb(74, 73, 73);
+}
+
+.btn_auth:active {
+    top: 3px;
+    box-shadow: none;
+}
+
+.tab {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
   
+.top-container h2, h5 {
+    margin-top: 50px;
+    text-align: center
+}
+
+.tab_menu {
+    display: flex;
+    align-items: flex-end; 
+    justify-content: left;
+    min-height: 50px; 
+    padding: 0;
+    margin: 0;
+}
+  
+.tab_menu-item {
+    list-style: none;
+    width: 200px;
+    padding: 8px 5px; 
+    text-align: center;
+    margin-right: 6px;
+    background-color: #cdcdcd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: all .3s; 
+}
+  
+.tab_menu-item:last-of-type {
+    margin-right: 0px;
+ }
+
+.tab_menu-item.is-active {
+    background-color: rgba(48, 172, 249);
+    color: #ffffff;
+    padding: 12px 5px;
+}
+
+.tab_panel {
+    width: 100%;
+}
+
+.tab_panel-box {
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.tab_panel-box001 {
+    background-color: rgb(205, 246, 246);
+    display: none;
+}
+
+.tab_panel-box002 {
+    background-color: rgb(249, 227, 243);
+    display: none;
+}
+
+.tab_panel-box.is-show {
+    display: block;
+}
+
+.btn-auth {
+    
+}

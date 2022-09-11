@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{%load static%}
+{% load static %}
 
 {% block contents %}
 
@@ -7,16 +7,31 @@
     <div class = 'top-container'>
         <h2>SNSAPP~no-title~へようこそ</h2>
 
-        <p>日常の緩い出来事やポジティブな出来事を発信しよう！！</p>
+        <h5>日常の緩い出来事やポジティブな出来事を発信しよう！！</h5>
         {% if user.is_authenticated %}
             <a href = '{% url 'timelines:index' %}'>タイムラインを見よう！</a>
         {% else %}
-            <a href = '{% url 'accounts:login' %}'>ログインはこちら</a>
-            <a href = '{% url 'accounts:signup' %}'>登録はこちら</a>
+        <div class = 'tab'>
+            <ul class = 'tab_menu'>
+                <li class = 'tab_menu-item is-active' data-tab = '01'>このサイトについて</li>
+                <li class = 'tab_menu-item' data-tab = '02'>Get Start</li>
+            </ul>
+            <div class = 'tab_panel'>
+                <div class = 'tab_panel-box tab_panel-box001 is-show' data-tab = '01'>
+                    <h3>Concept</h3>
+                    <p>SNSです。</p>
+                </div>
+                <div class = 'tab_panel-box tab_panel-box002' data-tab = '02'>
+                    <p>アカウントをお持ちの方はこちら</p>
+                    <button class = 'btn-auth' href = '{% url 'accounts:login' %}'>ログインして投稿しよう！</button>
+                    <br></br>
+                    <p>アカウントを持っていない方はこちら</p>
+                    <button class = 'btn-auth' href = '{% url 'accounts:signup' %}'>アカウントを作成して投稿しよう！</button>
+                </div>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>
-
-{{user}}
-
+<script src = '{% static 'js/index.js' %}'></script>
 {% endblock %}

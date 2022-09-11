@@ -3,7 +3,7 @@
 
 {% block contents %}
 
-<div class = 'form_container'>
+<div class = 'form'>
     <form method = 'post'>
         {% csrf_token %}
         {% for fields in form %}
@@ -23,5 +23,5 @@
     </form>
 </div>
 
-<p><a href = '#'>トップページへ戻る</a></p>
+<p><a href = '{% url 'timelines:top' %}'>トップページへ戻る</a></p>
 {% endblock %}
