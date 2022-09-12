@@ -24,7 +24,7 @@
             </div>
         </div>
         <input type = 'submit' class = 'btn_auth' value = 'ログイン'>
-        <p><a href = '#'>パスワードを忘れましたか？</a></p>
+        <p><a href = '{% url 'password_reset' %}'>パスワードを忘れましたか？</a></p>
         <input type = 'hidden' name = 'next' value = '{% url 'timelines:index' %}'>
     </form>
 </div>

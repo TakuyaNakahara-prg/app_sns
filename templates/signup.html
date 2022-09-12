@@ -6,22 +6,33 @@
 <div class = 'form'>
     <form method = 'post'>
         {% csrf_token %}
+        <h1 style = 'text-align:center; border-bottom: 1px solid black;'>Signup Form</h1>
         {% for fields in form %}
-            {{ fields.label_tag }}
-            <br>
-            <p>
-            {{ fields }}
-            {% if fields.help_text %}
-                <small style = 'color: gray'>{{ fields.help_text }}</small>
-            {% endif %}
+        <div class = 'userinfo'>
+            <div class = 'info'>
+                <span>必須</span>
+                    {{ fields.label_tag }}
+                    <br>
+                    <p>
+                    {{ fields }}
+                    </p>
+
+                    <div class = 'help_text'>
+                    {% if fields.help_text %}
+                        <small style = 'color: gray'>{{ fields.help_text }}</small>
+                    {% endif %}
+                    </div>
+            </div>
             {% for error in fields.errors %}
                 <p style = 'color: red'>{{ error }}</p>
             {% endfor %}
             </p>
+        </div>
         {% endfor %}
-        <input type = 'submit' value = '登録'>
+        <input class = 'btn_auth' type = 'submit' value = '登録'>
+        <button class = 'btn-auth' onClick = "location.href = '{% url 'timelines:top' %}'">トップページへ戻る</a>
     </form>
+    
 </div>
 
-<p><a href = '{% url 'timelines:top' %}'>トップページへ戻る</a></p>
 {% endblock %}

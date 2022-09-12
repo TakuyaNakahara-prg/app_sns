@@ -133,11 +133,3 @@ STATIFIERS_DIR = STATICFILES_DIRS = (
 AUTH_USER_MODEL = 'accounts.User'
 
 #メール送信
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-DEFAULT_FROM_EMAIL = 'gate01221@gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'gate01221@gmail.com'
-EMAIL_HOST_PASSWORD = 'zrxq goyf fnfa borv'
-EMAIL_USE_TLS = True

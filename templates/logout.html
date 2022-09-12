@@ -2,6 +2,16 @@
 {% load static %}
 
 {% block contents %}
-<h3>ログアウトしました</h3>
-<p><a href = '{% url 'timelines:top' %}'>トップページへ</a></p>
+<div class = 'top-page'>
+    <div class = 'top-container'>
+        <h2>SNSAPP~no-title~へようこそ</h2>
+
+        <h5>日常の緩い出来事やポジティブな出来事を発信しよう！！</h5>
+        <div class = 'logout'>
+        <h3 style = 'color: red;'>ログアウトしました</h3>
+        <button class = 'btn-auth' onClick = "location.href = '{% url 'timelines:top' %}'">トップページへ</button>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

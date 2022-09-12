@@ -4,16 +4,20 @@
 {% block contents %}
 
 {% for post in object_list %}
-<section>
-    <div class="card">
-        <h5 class="card-header">[プロフィール画像]{{ post.user.username }}</h5>
-        <div class="card-body">
-          <p class="card-text">{{ post.text }}</p>
-          <p class="card-text">{{ post.created_at }}</p>
-          <a href="{% url 'timelines:detail' post.pk %}" class="btn btn-primary">詳細</a>
-        </div>
-      </div>
-    </section>
+<div class="card">
+    <div class="card-header">
+      {{ post.user }}<span class = 'created_at'>{{ post.created_at }}</span> 
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ post.text|truncatechars:30 }}</p>
+        <a href='{% url 'timelines:detail' post.pk %}' style="text-decoration: none;"  class="btn-auth">投稿詳細</a>
+        {% if post.user == user %}
+            <a href = '{% url 'timelines:delete' post.pk %}' class="btn btn-primary">削除する</a>
+            <a href = '{% url 'timelines:update' post.pk %}' class="btn btn-primary">更新</a>
+        {% endif %}
+
+    </div>
+</div>
 {% endfor %}
 
 {% endblock %}

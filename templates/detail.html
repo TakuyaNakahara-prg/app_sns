@@ -3,29 +3,36 @@
 
 {% block contents %}
 <div class="card">
-    <h5 class="card-header">{{ post.user }}</h5>
-
+    <div class="card-header">
+      {{ post.user }}<span class = 'created_at'>{{ post.created_at }}</span> 
+    </div>
     <div class="card-body">
-        <p class="card-text">{{ post.text }}</p>
-        <p class="card-text">{{ post.created_at }}</p>
+      <p class="card-text">{{ post.text }}</p>
+        <p>
         {% if post.user == user %}
-            <a href = '{% url 'timelines:delete' post.pk %}' class="btn btn-primary">削除する</a>
-            <a href = '{% url 'timelines:update' post.pk %}' class="btn btn-primary">更新</a>
+            <a href = '{% url 'timelines:delete' post.pk %}'>削除する</a>
+            <a href = '{% url 'timelines:update' post.pk %}'>更新</a>
         {% endif %}
+        </p>
 
-        <p><a href = '{% url 'timelines:comment' post.pk %}'>返信</a></p>
+        <a class = 'btn-auth' onClick = "location.href = '{% url 'timelines:comment' post.pk %}'" style="text-decoration: none;">返信する</a>
+        <a href = '{% url 'timelines:userpost' post.user.id %}' style="text-decoration: none;" class = 'btn_auth'>
+            {{ post.user.username }}の投稿一覧へ</a>
     </div>
 </div>
-
-
+<div class = 'comment'>
+    <h5>コメント一覧</h5>
+</div>
 {% for comment in post.comment_set.all %}
 <div class="card">
-    <h5 class="card-header">{{ comment.user }}</h5>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">{{ comment.text }}</p>
-      <p class="card-text">{{ comment.created_at }}</p>
+    <div class="card-header">
+        {{ comment.user }}<span class = 'created_at'>{{ comment.created_at }}</span> 
     </div>
-</div>
+    <div class="card-body">
+      <p class="card-text">{{ comment.text }}</p>
+      <a class = 'btn-auth' onClick = "location.href = '{% url 'timelines:comment' post.pk %}'" style="text-decoration: none;">返信する</a>
+      <a href = '{% url 'timelines:userpost' comment.user.id %}' style="text-decoration: none;" class = 'btn_auth'>{{ comment.user.username }}の投稿一覧へ</a>
+    </div>
+  </div>
 {% endfor %}
 {% endblock %}
