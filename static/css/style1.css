@@ -47,6 +47,20 @@ body {
     box-shadow:5px 5px 0px rgba(0,0,0,.1);
 }
 
+.resetform {
+    background:#fff;
+    border-radius:6px;
+    padding:20px;
+    padding-top:30px;
+    width:80%;
+    margin:50px auto;
+    box-shadow:5px 5px 0px rgba(0,0,0,.1);
+}
+
+.resetform h1 {
+    border-bottom: 1px solid black;
+}
+
 .userinfo {
     margin-bottom: 30px;
     text-align: left;
